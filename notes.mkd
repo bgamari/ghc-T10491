@@ -2,6 +2,8 @@
 
 https://ghc.haskell.org/trac/ghc/ticket/10491
 
+GHC 7.8.3 compiles without trouble.
+
 With some release between GHC 7.8 and 7.10 (March 2015),
 
 ```bash
