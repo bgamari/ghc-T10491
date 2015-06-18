@@ -4,6 +4,8 @@
 {-# LANGUAGE TypeOperators         #-}
 {-# LANGUAGE ImpredicativeTypes    #-}
 {-# OPTIONS -fno-warn-name-shadowing #-}
+{-# OPTIONS -fsimpl-tick-factor=150 -v3 #-}
+{-# OPTIONS -ddump-to-file -ddump-simpl-stats -dverbose-core2core #-}
 
 -- |
 -- Module      : Data.Array.Accelerate.Array.Slice
