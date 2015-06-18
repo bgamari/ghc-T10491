@@ -149,5 +149,23 @@ Result size of Worker Wrapper binds
 *** Simplifier:
 Result size of Simplifier iteration=1
   = {terms: 4,220,663, types: 4,097,202, coercions: 111,279}
+Result size of Simplifier iteration=2
+  = {terms: 4,217,847, types: 4,091,651, coercions: 111,692}
+Result size of Simplifier iteration=3
+  = {terms: 4,216,826, types: 4,089,515, coercions: 111,180}
+Result size of Simplifier
+  = {terms: 4,216,826, types: 4,089,515, coercions: 111,180}
+*** Float out(FOS {Lam = Just 0, Consts = True, OverSatApps = True}):
+Result size of Float out(FOS {Lam = Just 0,
+                              Consts = True,
+                              OverSatApps = True})
+  = {terms: 4,256,393, types: 4,171,617, coercions: 111,180}
+*** Common sub-expression:
+Result size of Common sub-expression
+  = {terms: 4,089,713, types: 4,100,634, coercions: 102,593}
+*** Float inwards:
+Result size of Float inwards
+  = {terms: 4,089,713, types: 4,100,634, coercions: 102,593}
+*** Simplifier:
 
 ```
