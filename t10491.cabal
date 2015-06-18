@@ -1,0 +1,21 @@
+name:                t10491
+version:             0.1.0.0
+license-file:        LICENSE
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Slice
+  other-extensions:    GADTs, RecordWildCards, ScopedTypeVariables, TypeOperators, ImpredicativeTypes, FlexibleContexts, FlexibleInstances, MultiParamTypeClasses, OverlappingInstances, TypeFamilies, CPP, QuasiQuotes, TemplateHaskell, DeriveDataTypeable, StandaloneDeriving, TypeSynonymInstances, BangPatterns, PatternGuards, RankNTypes, ViewPatterns, UndecidableInstances, IncoherentInstances, OverloadedStrings, KindSignatures, TupleSections, MagicHash, UnboxedTuples
+  build-depends:       base >=4.8 && <4.9,
+                       template-haskell >=2.10 && <2.11,
+                       pretty >=1.1 && <1.2,
+                       containers >=0.5 && <0.6,
+                       bytestring >=0.10 && <0.11,
+                       mtl >=2.2 && <2.3,
+                       filepath >=1.4 && <1.5,
+                       directory >=1.2 && <1.3,
+                       unix >=2.7 && <2.8,
+                       array >=0.5 && <0.6,
+                       accelerate
+  default-language:    Haskell2010
