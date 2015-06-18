@@ -3,12 +3,28 @@
 https://ghc.haskell.org/trac/ghc/ticket/10491
 
 ## General thoughts
-GHC 7.10 does more floating out than GHC 7.8.
+The most notable difference seems to be in float-out.
 
 In the case of GHC 7.10,
-```365 Lets floated to top level; 31 Lets floated elsewhere; from 517 Lambda groups```
+```
+==================== FloatOut stats: ====================                            
+2015-06-18 11:48:11.637199 UTC                                                       
+                                                                                     
+365 Lets floated to top level; 31 Lets floated elsewhere; from 517 Lambda groups     
+```
 whereas in GHC 7.8,
-```345 Lets floated to top level; 32 Lets floated elsewhere; from 178 Lambda groups```
+```
+==================== FloatOut stats: ====================                                  
+2015-06-18 11:00:52.439319 UTC                                                             
+                                                                                           
+345 Lets floated to top level; 32 Lets floated elsewhere; from 178 Lambda groups           
+                                                                                           
+                                                                                           
+==================== FloatOut stats: ====================                                  
+2015-06-18 11:00:59.748177 UTC                                                             
+                                                                                           
+37 Lets floated to top level; 0 Lets floated elsewhere; from 153 Lambda groups             
+```
 
 ## GHC 7.8.3
 
