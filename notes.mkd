@@ -2,9 +2,17 @@
 
 https://ghc.haskell.org/trac/ghc/ticket/10491
 
+## GHC 7.8.3
+
 GHC 7.8.3 compiles without trouble.
 
-With some release between GHC 7.8 and 7.10 (March 2015),
+Type count never goes above 11000.
+
+## GHC March 2015
+
+029a296a770addbd096bbfd6de0936327ee620d4 = some release between GHC 7.8 and 7.10 (March 2015),
+
+Type count follows 7.8.3 (around 7000) until `Float out(FOS {Lam = Just 0, Consts = True, OverSatApps = False})`, at which point it balloons to 57000. Things get worse from there.
 
 ```bash
 # ghc --info
