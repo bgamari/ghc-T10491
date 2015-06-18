@@ -8,11 +8,17 @@ GHC 7.8.3 compiles without trouble.
 
 Type count never goes above 11000.
 
+## GHC Oct 2014
+
+d70b19bfb5ed79b22c2ac31e22f46782fc47a117
+
+Doesn't make it through float out
+
 ## GHC Dec 2014
 
 55a2a0b4893486e5dde151620d7f46e8035d2af5
 
-Doesn't even seem to make it through the initial simplifier phase. 
+Doesn't even seem to make it through float out.
 
 ## GHC Jan 2015
 
