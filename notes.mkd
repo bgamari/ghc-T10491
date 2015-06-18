@@ -8,6 +8,10 @@ GHC 7.8.3 compiles without trouble.
 
 Type count never goes above 11000.
 
+## GHC Jan 2015
+
+2b76240117aefb08c95b4b75df720ae1a4d4b5ef also reproduces bad behavior.
+
 ## GHC March 2015
 
 029a296a770addbd096bbfd6de0936327ee620d4 = some release between GHC 7.8 and 7.10 (March 2015),
