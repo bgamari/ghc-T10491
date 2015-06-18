@@ -132,5 +132,7 @@ Result size of Called arity analysis
 *** Simplifier:
 Result size of Simplifier iteration=1
   = {terms: 4,214,438, types: 4,079,616, coercions: 112,166}
+Result size of Simplifier iteration=2
+  = {terms: 4,214,105, types: 4,078,472, coercions: 111,340}
 
 ```
