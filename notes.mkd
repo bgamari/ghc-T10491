@@ -3,54 +3,12 @@
 https://ghc.haskell.org/trac/ghc/ticket/10491
 
 ## General thoughts
+GHC 7.10 does more floating out than GHC 7.8.
 
-Interestingly enough the Core produced by GHC 7.10 is has a remarkable number of deep coercions in it. For instance,
-
-```haskell
-    ($dArrayElt_ablp                                                                                 
-     `cast` ((Data.Array.Accelerate.Array.Data.ArrayElt                                              
-                (((((((((Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltReprZ[0],                   
-                         Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N              
-                        ; Sym                                                                        
-                            (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                   
-                               <Z>_N <Int>_N),                                                       
-                        Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N               
-                       ; Sym                                                                         
-                           (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                    
-                              <Z :. Int>_N <Int>_N),                                                 
-                       Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N                
-                      ; Sym                                                                          
-                          (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                     
-                             <(Z :. Int) :. Int>_N <Int>_N),                                         
-                      Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N                 
-                     ; Sym                                                                           
-                         (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                      
-                            <((Z :. Int) :. Int) :. A>_N <Int>_N),                                   
-                     Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N                  
-                    ; Sym                                                                            
-                        (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                       
-                           <(((Z :. Int) :. Int) :. A) :. A>_N <Int>_N),                             
-                    Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N                   
-                   ; Sym                                                                             
-                       (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                        
-                          <((((Z :. Int) :. Int) :. A) :. A) :. A>_N <Int>_N),                       
-                   Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N                    
-                  ; Sym                                                                              
-                      (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                         
-                         <(((((Z :. Int) :. Int) :. A) :. A) :. A) :. A>_N <Int>_N),                 
-                  Sym Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr'Int[0])_N                     
-                 ; Sym                                                                               
-                     (Data.Array.Accelerate.Array.Sugar.TFCo:R:EltRepr:.[0]                          
-                        <((((((Z :. Int) :. Int) :. A) :. A) :. A) :. A) :. A>_N                     
-                        <Int>_N)))_R                                                                 
-             :: Data.Array.Accelerate.Array.Data.ArrayElt                                            
-                  (((((((((), Int), Int), Int), Int), Int), Int), Int), Int)                         
-                ~R# Data.Array.Accelerate.Array.Data.ArrayElt                                        
-                      (Data.Array.Accelerate.Array.Sugar.EltRepr                                     
-                         ((((((((Z :. Int) :. Int) :. A) :. A) :. A) :. A) :. A) :. Int))))          
-```
-
-The Core produced by GHC 7.8 does not appear to have similar types. For this reason I'm beginning to think this might be related to #7428.
+In the case of GHC 7.10,
+```365 Lets floated to top level; 31 Lets floated elsewhere; from 517 Lambda groups```
+whereas in GHC 7.8,
+```345 Lets floated to top level; 32 Lets floated elsewhere; from 178 Lambda groups```
 
 ## GHC 7.8.3
 
