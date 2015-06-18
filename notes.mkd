@@ -1,0 +1,4 @@
+# T10491
+
+https://ghc.haskell.org/trac/ghc/ticket/10491
+
