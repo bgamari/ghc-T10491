@@ -2,3 +2,135 @@
 
 https://ghc.haskell.org/trac/ghc/ticket/10491
 
+With some release between GHC 7.8 and 7.10 (March 2015),
+
+```bash
+# ghc --info
+ [("Project name","The Glorious Glasgow Haskell Compilation System")
+ ,("GCC extra via C opts"," -fwrapv")
+ ,("C compiler command","/usr/bin/gcc")
+ ,("C compiler flags"," -fno-stack-protector")
+ ,("C compiler link flags","")
+ ,("Haskell CPP command","/usr/bin/gcc")
+ ,("Haskell CPP flags","-E -undef -traditional ")
+ ,("ld command","/usr/bin/ld")
+ ,("ld flags","")
+ ,("ld supports compact unwind","YES")
+ ,("ld supports build-id","YES")
+ ,("ld supports filelist","NO")
+ ,("ld is GNU ld","YES")
+ ,("ar command","/usr/bin/ar")
+ ,("ar flags","q")
+ ,("ar supports at file","YES")
+ ,("touch command","touch")
+ ,("dllwrap command","/bin/false")
+ ,("windres command","/bin/false")
+ ,("libtool command","libtool")
+ ,("perl command","/usr/bin/perl")
+ ,("target os","OSLinux")
+ ,("target arch","ArchX86_64")
+ ,("target word size","8")
+ ,("target has GNU nonexec stack","True")
+ ,("target has .ident directive","True")
+ ,("target has subsections via symbols","False")
+ ,("Unregisterised","NO")
+ ,("LLVM llc command","llc")
+ ,("LLVM opt command","opt")
+ ,("Project version","7.10.0.20150312")
+ ,("Project Git commit id","029a296a770addbd096bbfd6de0936327ee620d4")
+ ,("Booter version","7.10.1")
+ ,("Stage","2")
+ ,("Build platform","x86_64-unknown-linux")
+ ,("Host platform","x86_64-unknown-linux")
+ ,("Target platform","x86_64-unknown-linux")
+ ,("Have interpreter","YES")
+ ,("Object splitting supported","YES")
+ ,("Have native code generator","YES")
+ ,("Support SMP","YES")
+ ,("Tables next to code","YES")
+ ,("RTS ways","l debug thr thr_debug thr_l  dyn debug_dyn thr_dyn thr_debug_dyn l_dyn thr_l_dyn")
+ ,("Support dynamic-too","YES")
+ ,("Support parallel --make","YES")
+ ,("Support reexported-modules","YES")
+ ,("Support thinning and renaming package flags","YES")
+ ,("Uses package keys","YES")
+ ,("Dynamic by default","NO")
+ ,("GHC Dynamic","YES")
+ ,("Leading underscore","NO")
+ ,("Debug on","False")
+ ,("LibDir","/mnt/drv1/ghc-root/lib/ghc-7.10.0.20150312")
+ ,("Global Package DB","/mnt/drv1/ghc-root/lib/ghc-7.10.0.20150312/package.conf.d")
+ ]
+# cabal install -j1
+Resolving dependencies...
+Configuring t10491-0.1.0.0...
+Building t10491-0.1.0.0...
+Preprocessing library t10491-0.1.0.0...
+compile: input file Slice.hs
+Created temporary directory: /tmp/ghc6862_0
+*** Checking old interface for Slice:
+[1 of 1] Compiling Slice            ( Slice.hs, dist/dist-sandbox-d5eaa593/build/Slice.o )
+*** Parser:
+*** Renamer/typechecker:
+*** Desugar:
+Result size of Desugar (after optimization)
+  = {terms: 2,882, types: 7,010, coercions: 5,345}
+*** Simplifier:
+Result size of Simplifier iteration=1
+  = {terms: 2,840, types: 7,143, coercions: 5,339}
+Result size of Simplifier iteration=2
+  = {terms: 2,839, types: 7,137, coercions: 5,339}
+Result size of Simplifier
+  = {terms: 2,839, types: 7,137, coercions: 5,339}
+*** Specialise:
+Result size of Specialise
+  = {terms: 10,209, types: 44,056, coercions: 57,085}
+*** Float out(FOS {Lam = Just 0, Consts = True, OverSatApps = False}):
+Result size of Float out(FOS {Lam = Just 0,
+                              Consts = True,
+                              OverSatApps = False})
+  = {terms: 11,861, types: 57,554, coercions: 57,085}
+*** Simplifier:
+Result size of Simplifier iteration=1
+  = {terms: 21,922, types: 99,649, coercions: 73,462}
+Result size of Simplifier iteration=2
+  = {terms: 25,375, types: 109,660, coercions: 73,979}
+Result size of Simplifier iteration=3
+  = {terms: 24,414, types: 105,635, coercions: 58,047}
+Result size of Simplifier iteration=4
+  = {terms: 24,328, types: 105,079, coercions: 56,642}
+Result size of Simplifier
+  = {terms: 24,328, types: 105,079, coercions: 56,642}
+*** Simplifier:
+Result size of Simplifier iteration=1
+  = {terms: 23,743, types: 103,762, coercions: 55,339}
+Result size of Simplifier iteration=2
+  = {terms: 23,711, types: 103,644, coercions: 54,742}
+Result size of Simplifier iteration=3
+  = {terms: 23,708, types: 103,602, coercions: 54,305}
+Result size of Simplifier iteration=4
+  = {terms: 23,698, types: 103,571, coercions: 54,008}
+Result size of Simplifier
+  = {terms: 23,698, types: 103,571, coercions: 54,008}
+*** Simplifier:
+Result size of Simplifier iteration=1
+  = {terms: 52,892, types: 174,013, coercions: 67,479}
+Result size of Simplifier iteration=2
+  = {terms: 4,970,410, types: 5,659,283, coercions: 71,032}
+Result size of Simplifier iteration=3
+  = {terms: 4,371,913, types: 4,557,723, coercions: 143,136}
+Result size of Simplifier iteration=4
+  = {terms: 4,221,543, types: 4,099,977, coercions: 114,180}
+Result size of Simplifier
+  = {terms: 4,221,543, types: 4,099,977, coercions: 114,180}
+*** Float inwards:
+Result size of Float inwards
+  = {terms: 4,221,543, types: 4,099,977, coercions: 114,180}
+*** Called arity analysis:
+Result size of Called arity analysis
+  = {terms: 4,221,543, types: 4,099,977, coercions: 114,180}
+*** Simplifier:
+Result size of Simplifier iteration=1
+  = {terms: 4,214,438, types: 4,079,616, coercions: 112,166}
+
+```
