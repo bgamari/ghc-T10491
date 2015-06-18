@@ -19,11 +19,12 @@ LD_LIBRARY_PATH=$ghc_prefix/lib:$LD_LIBRARY_PATH
 
 cabal sandbox delete || true
 cabal sandbox init
+cabal install hashable-1.2.3.2/
 cabal install accelerate-0.15.1.0/
 cabal install --only-dependencies
 
 res=0
-timeout 120 cabal build || res=$?
+timeout 120 cabal build -j1 || res=$?
 if [ $res == 0 ]; then
 	exit 0
 else
