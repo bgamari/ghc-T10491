@@ -134,5 +134,20 @@ Result size of Simplifier iteration=1
   = {terms: 4,214,438, types: 4,079,616, coercions: 112,166}
 Result size of Simplifier iteration=2
   = {terms: 4,214,105, types: 4,078,472, coercions: 111,340}
+Result size of Simplifier iteration=3
+  = {terms: 4,214,153, types: 4,078,506, coercions: 111,262}
+Result size of Simplifier iteration=4
+  = {terms: 4,214,161, types: 4,078,512, coercions: 111,212}
+Result size of Simplifier
+  = {terms: 4,214,161, types: 4,078,512, coercions: 111,212}
+*** Demand analysis:
+Result size of Demand analysis
+  = {terms: 4,214,161, types: 4,078,512, coercions: 111,212}
+*** Worker Wrapper binds:
+Result size of Worker Wrapper binds
+  = {terms: 4,227,340, types: 4,127,150, coercions: 113,002}
+*** Simplifier:
+Result size of Simplifier iteration=1
+  = {terms: 4,220,663, types: 4,097,202, coercions: 111,279}
 
 ```
