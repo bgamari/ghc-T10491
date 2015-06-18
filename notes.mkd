@@ -15,6 +15,12 @@ Type count never goes above 11000.
 
 ## GHC Oct 2014
 
+2a8ea4745d6ff79d6ce17961a64d9013243fc3c6
+
+Doesn't make it through float-out.
+
+## GHC Oct 2014
+
 d70b19bfb5ed79b22c2ac31e22f46782fc47a117
 
 Doesn't make it through float out
