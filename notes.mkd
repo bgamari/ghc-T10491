@@ -167,5 +167,8 @@ Result size of Common sub-expression
 Result size of Float inwards
   = {terms: 4,089,713, types: 4,100,634, coercions: 102,593}
 *** Simplifier:
-
+Result size of Simplifier iteration=1
+  = {terms: 4,154,050, types: 4,332,154, coercions: 103,166}
 ```
+
+At this point I killed it.
