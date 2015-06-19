@@ -2,9 +2,74 @@
 
 https://ghc.haskell.org/trac/ghc/ticket/10491
 
+## General thoughts
+The most notable difference seems to be in float-out.
+
+In the case of GHC 7.10,
+```
+==================== FloatOut stats: ====================                            
+2015-06-18 11:48:11.637199 UTC                                                       
+                                                                                     
+365 Lets floated to top level; 31 Lets floated elsewhere; from 517 Lambda groups     
+```
+whereas in GHC 7.8,
+```
+==================== FloatOut stats: ====================                                  
+2015-06-18 11:00:52.439319 UTC                                                             
+                                                                                           
+345 Lets floated to top level; 32 Lets floated elsewhere; from 178 Lambda groups           
+                                                                                           
+                                                                                           
+==================== FloatOut stats: ====================                                  
+2015-06-18 11:00:59.748177 UTC                                                             
+                                                                                           
+37 Lets floated to top level; 0 Lets floated elsewhere; from 153 Lambda groups             
+```
+
+## GHC 7.8.3
+
 GHC 7.8.3 compiles without trouble.
 
-With some release between GHC 7.8 and 7.10 (March 2015),
+Type count never goes above 11000.
+
+## GHC May 2014
+949ad67e2f475864a405d214c3e02f2918931eb8
+
+*Works.*
+
+## GHC August 2014
+
+393b820233caa00e428affc28e090b496d181664
+
+Doesn't make it through float-out
+
+## GHC Oct 2014
+
+2a8ea4745d6ff79d6ce17961a64d9013243fc3c6
+
+Doesn't make it through float-out.
+
+## GHC Oct 2014
+
+d70b19bfb5ed79b22c2ac31e22f46782fc47a117
+
+Doesn't make it through float out
+
+## GHC Dec 2014
+
+55a2a0b4893486e5dde151620d7f46e8035d2af5
+
+Doesn't even seem to make it through float out.
+
+## GHC Jan 2015
+
+2b76240117aefb08c95b4b75df720ae1a4d4b5ef also reproduces bad behavior.
+
+## GHC March 2015
+
+029a296a770addbd096bbfd6de0936327ee620d4 = some release between GHC 7.8 and 7.10 (March 2015),
+
+Type count follows 7.8.3 (around 7000) until `Float out(FOS {Lam = Just 0, Consts = True, OverSatApps = False})`, at which point it balloons to 57000. Things get worse from there.
 
 ```bash
 # ghc --info
@@ -174,3 +239,4 @@ Result size of Simplifier iteration=1
 ```
 
 At this point I killed it.
+
